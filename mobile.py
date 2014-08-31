@@ -26,15 +26,15 @@ for this_file in args.file_list:
             while cleaned_tx is None:
                 t = Transaction()
 
-                splited_lines = line.split(" ")
+                split_lines = line.split(" ")
 
-                raw_date = splited_lines[0]
+                raw_date = split_lines[0]
                 t.valid_transaction_date = datetime.strptime(raw_date, "%m/%d/%y")
 
-                raw_amount = splited_lines[1]
+                raw_amount = split_lines[1]
                 t.amount = Decimal(raw_amount)
 
-                raw_tags = splited_lines[2].replace('[', '').replace(']', '').split(',')
+                raw_tags = split_lines[2].replace('[', '').replace(']', '').split(',')
 
                 payee = ""
 
