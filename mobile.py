@@ -9,7 +9,7 @@ from transaction import Transaction
 import transactionui
 import db
 
-DEFAULT_ACCOUNT = db.ACCOUNT_CREDIT
+DEFAULT_ACCOUNT = db.ACCOUNT_CASH
 
 parser = argparse.ArgumentParser(description="Import transaction from mobile")
 parser.add_argument('--output', help="Output file")
@@ -27,7 +27,7 @@ for this_file in args.file_list:
             split_lines = line.split(" ")
 
             raw_date = split_lines[0]
-            t.valid_transaction_date = datetime.strptime(raw_date, "%m/%d/%y")
+            t.valid_transaction_date = datetime.strptime(raw_date, "%d/%m/%Y")
 
             raw_amount = split_lines[1]
             t.amount = Decimal(raw_amount)
